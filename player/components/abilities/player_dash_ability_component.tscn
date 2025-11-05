@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://vrqnmbbtdmck"]
+
+[ext_resource type="PackedScene" uid="uid://clbbrwtticbka" path="res://player/components/player_component.tscn" id="1_o11uh"]
+[ext_resource type="Script" uid="uid://fqjl62kp5cal" path="res://player/components/abilities/player_dash_ability_component.gd" id="2_larjm"]
+
+[node name="PlayerDashAbilityComponent" instance=ExtResource("1_o11uh")]
+script = ExtResource("2_larjm")
+

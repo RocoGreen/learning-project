@@ -1,15 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://qmg7uhkoy77j"]
+[gd_scene load_steps=9 format=3 uid="uid://qmg7uhkoy77j"]
 
 [ext_resource type="Script" uid="uid://bclnp6gnil7u4" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="PackedScene" uid="uid://c4uvi3u1nqpo1" path="res://player/components/camera/player_camera_component.tscn" id="2_rkbax"]
 [ext_resource type="PackedScene" uid="uid://sojo1dxj4fi5" path="res://player/components/movement/player_movement_component.tscn" id="3_yw30f"]
 [ext_resource type="PackedScene" uid="uid://d1n6bqofp7taa" path="res://player/components/rotation/player_rotation_component.tscn" id="4_qjkh3"]
+[ext_resource type="PackedScene" uid="uid://vrqnmbbtdmck" path="res://player/components/abilities/player_dash_ability_component.tscn" id="5_qjkh3"]
+[ext_resource type="PackedScene" uid="uid://bk31milhmpc03" path="res://player/components/weapons/player_weapon_component.tscn" id="6_g6k8r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g1dw6"]
 
 [node name="Player" type="CharacterBody3D"]
+collision_mask = 31
 script = ExtResource("1_oul6g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -25,7 +28,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
 player = NodePath("../..")
 
 [node name="PlayerMovementComponent" parent="Components" node_paths=PackedStringArray("player") instance=ExtResource("3_yw30f")]
+disabled = false
 player = NodePath("../..")
 
 [node name="PlayerRotationComponent" parent="Components" node_paths=PackedStringArray("player") instance=ExtResource("4_qjkh3")]
+player = NodePath("../..")
+
+[node name="PlayerDashAbilityComponent" parent="Components" node_paths=PackedStringArray("player") instance=ExtResource("5_qjkh3")]
+player = NodePath("../..")
+
+[node name="PlayerWeaponComponent" parent="Components" node_paths=PackedStringArray("player") instance=ExtResource("6_g6k8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.672222, 0, 0)
 player = NodePath("../..")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://drujo1sad4dcp"]
+
+[ext_resource type="Script" uid="uid://buf2xrs7rtrq0" path="res://player/components/weapons/bullet/player_weapon_component_bullet.gd" id="1_lqol5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_apyhk"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_lqol5"]
+
+[node name="PlayerWeaponComponentBullet" type="Area3D"]
+top_level = true
+collision_layer = 4
+collision_mask = 24
+script = ExtResource("1_lqol5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_apyhk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_lqol5")
+
+[node name="TimeoutTimerUntilSelfDestruction" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="TimeoutTimerUntilSelfDestruction" to="." method="_on_timeout_timer_until_self_destruction_timeout"]

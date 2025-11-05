@@ -4,8 +4,11 @@ extends PlayerComponent
 @export var move_speed = 5.0
 @export var jump_velocity = 4.5
 
+@export var disabled := false
+
 func _physics_process(delta: float) -> void:
 	if !player: return
+	if disabled: return
 	
 	# Add the gravity.
 	if not player.is_on_floor():
@@ -19,6 +22,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction: Vector3 = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
 	if direction:
 		player.velocity.x = direction.x * move_speed
 		player.velocity.z = direction.z * move_speed
