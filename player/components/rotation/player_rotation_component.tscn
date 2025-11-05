@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1n6bqofp7taa"]
+
+[ext_resource type="PackedScene" uid="uid://clbbrwtticbka" path="res://player/components/player_component.tscn" id="1_ath5s"]
+[ext_resource type="Script" uid="uid://cfd257vs8stdv" path="res://player/components/rotation/player_rotation_component.gd" id="2_j3ps4"]
+
+[node name="PlayerRotationComponent" instance=ExtResource("1_ath5s")]
+script = ExtResource("2_j3ps4")
+mouse_sensitivity = 0.01

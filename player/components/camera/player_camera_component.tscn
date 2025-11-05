@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4uvi3u1nqpo1"]
+
+[ext_resource type="PackedScene" uid="uid://clbbrwtticbka" path="res://player/components/player_component.tscn" id="1_t1vu0"]
+[ext_resource type="Script" uid="uid://80xqqt8wcxbt" path="res://player/components/camera/player_camera_component.gd" id="2_hr6t0"]
+
+[node name="PlayerCameraComponent" instance=ExtResource("1_t1vu0")]
+script = ExtResource("2_hr6t0")
+smoothness = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="." index="0"]
+current = true
